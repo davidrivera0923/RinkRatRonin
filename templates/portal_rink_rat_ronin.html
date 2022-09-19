@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<title>Document</title>
+</head>
+
+
+<body>
+	<div class="contianer">
+		<h1>Welcome to Rink Rat Ronin, {{player.first_name}}! </h1>
+		<p><a href="/logout" class="btn btn-info">Logout</a>
+		</p>
+
+		<table class="table table-striped">
+
+			<thead>
+				<tr>
+					<th> Player</th>
+
+					<th> Locations</th>
+
+					<th> Occur</th>
+
+					<th> Actions</th>
+
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+
+					{% for pond in ponds %}
+
+
+					<td>{{pond.creator.first_name}} {{pond.creator.last_name}}</td>
+
+					<td>{{pond.location}}</td>
+					<td>{{pond.occur}}</td>
+
+
+
+
+					<td><a href="/show/pond/{{pond.id}}">View</a>
+						{% if pond.creator.id == session.player_id %}
+
+
+						<a href="/edit/pond/{{pond.id}}">Edit</a>
+						<a href="/delete/pond/{{pond.id}}">Delete</a>
+						{% endif %}
+
+					</td>
+				</tr>
+			</tbody>
+			{% endfor %}
+
+		</table>
+	</div>
+
+	<p><a href="/add_pond" class="btn btn-info">Add Pond </a></p>
+
+
+
+
+
+</body>
+
+</html>

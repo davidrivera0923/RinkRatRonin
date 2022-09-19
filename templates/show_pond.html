@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+	<title>Show your pond</title>
+</head>
+
+<body>
+	<nav class="d-flex justify-content-between align-items-center col-20 bg-dark">
+		<div class="d-flex col-6 justify-content-around">
+			<a href="/portal_rink_rat_ronin">Portal</a>
+			<a href="/edit/pond/{{players.id}}">Edit</a>
+			<a href="/logout">Logout</a>
+		</div>
+	</nav>
+	<div class="card col-16 mx-auto my-7 bg-light text-dark">
+
+
+		<div class="card-body">
+			<h2 class="card-title text-primary"> Pond Location:{{ponds.location}}</h2>
+			<p class="card-text">Occur: {{ponds.occur.strftime('%m,%d,%Y')}}</p>
+			<p class="card-text">Description: {{ponds.description}}</p>
+			<img src="{{ponds.photo_upload}}" alt="{{ponds.photo_upload}}" class="img-thumbnail">
+
+			<br>
+			<p><a href="/delete/pond/{{ponds.id}}">Delete your Pond Post</a></p>
+		</div>
+		<a href="/add_pond">Add a Pond</a>
+
+
+
+</body>
+
+</html>

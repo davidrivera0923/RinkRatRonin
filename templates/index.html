@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css">
+
+	<title>Rink Rat Ronin</title>
+</head>
+<body>
+
+		<div class=".flex-column">
+			<form action="/register" method="post" class="col-5 p-5 bg-light text-dark">
+				<h1 class="text-primary"> Become a Member Register</h1>
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+				<div class="alert alert-danger" role="alert">
+					<strong>Flash AHHH!!!!!</strong>
+							{% for messages in message %}
+							<p>{{message}}</p>
+							{% endfor %}
+				</div>
+					{% endif %}
+			{% endwith %}
+			<div class="form-group">
+				<label for="first_name">First Name:</label>
+				<input type="text" name="first_name" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="text" name="email" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" name="password" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="confirm_pw">Confirm Password</label>
+				<input type="password" name="confirm_pw" class="form-control">
+			</div>
+			<input type="submit" value="Register" class="btn btn-primary">
+			</form>
+			<form action="/login" method="post" class="col-5 p-5 bg-light text-dark">
+
+				<!-- Insert Jinja for validators -->
+
+
+
+				<div class="form-group">
+					<h1 class="text-success"> Login into your Portal</h1>
+					{% with messages = get_flashed_messages() %}
+					{% if messages %}
+					<div class="alert alert-danger" role="alert">
+						<strong>Flash AHHH!!!!!</strong>
+								{% for messages in message %}
+								<p>{{message}}</p>
+								{% endfor %}
+					</div>
+						{% endif %}
+				{% endwith %}
+	
+						<label for="email">Email:</label>
+						<input type="text" name="email" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" name="password" class="form-control">
+			</div>
+			<input type="submit" value="Login" class="btn btn-success">
+			</form>
+		</div>
+	
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<title>Add a Pond</title>
+</head>
+<body>
+		<H1>Rink Rat Ronin</H1>
+		<div class="d-flex justify-content-between align-items-center col-12">
+			<a href="/portal_rink_rat_ronin">Back to Portal</a>
+			<a href="/logout">Logout</a>
+		</div>
+
+<form action="/create/pond" method="post" enctype="multipart/form-data" class="col-12 p-4 my-4 bg-dark text-light mx-auto">
+	<h1 class="text-primary"> Add your latest Pond Hockey Experience</h1>
+	{% with messages = get_flashed_messages(category_filter=['pond']) %}
+			{% if messages %}
+			<div class="alert alert-danger" role="alert">
+					<strong>Flash AHHHHHHH!!!!</strong>
+							{% for message in messages %}
+							<p>{{message}}</p>
+							{% endfor %}
+			</div>
+			{% endif %}
+	{% endwith %}
+
+<div class="d-flex justify-content col-12">
+		<div class="form-group">
+			<label for="location"> Pond location</label>
+			<input type="text" name="location" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="occur"> Occur</label>
+			<input type="date" name="occur" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="description"> Description</label>
+			<textarea name="description" cols="40" rows="7" class="form-control"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="photo_upload"> Photo Upload</label>
+			<input type="file" name="file" class="form-control">
+		</div>
+		<br>
+		<input type="submit" value="Add Pond" class="btn btn-primary">
+</form>
+</div>
+
+
+
+	
+</body>
+</html>

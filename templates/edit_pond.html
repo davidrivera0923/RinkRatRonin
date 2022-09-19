@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<title>Edit a Pond</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="d-flex justify-content-between align-items-center col-12">
+			<a href="/portal_rink_rat_ronin">Back to Portal</a>
+			<a href="/logout">Logout</a>
+		</div>
+	</nav>
+
+<form action="/update/pond" method="post" enctype="multipart/form-data" class="col-12 p-4 my-4 bg-dark text-light mx-auto">
+	<input type="hidden" value="{{pond.id}}" name="id">
+	<h1 class="text-primary"> Edit your latest Pond Hockey Experience</h1>
+	{% with messages = get_flashed_messages(category_filter=['ponds']) %}
+			{% if messages %}
+			<div class="alert alert-danger" role="alert">
+					<strong>Flash AHHHHHHH!!!!</strong>
+							{% for message in messages %}
+							<p>{{message}}</p>
+							{% endfor %}
+			</div>
+			{% endif %}
+	{% endwith %}
+
+<div class="d-flex justify-content col-12">
+		<div class="form-group">
+			<label for="location"> Pond location</label>
+			<input type="text" name="location" value="{{pond.location}}"class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="occur"> Occur</label>
+			<input type="date" name="occur" value="{{pond.occur.strftime('%Y-%m-%d')}}"class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="description"> Description</label>
+			<textarea name="description" value="{{pond.description}}"cols="40" rows="7" class="form-control">{{pond.description}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="photo_upload"> Photo Upload</label>
+			<input type="file" name="file" class="form-control">
+		</div>
+		<input type="submit" value="Update Pond" class="btn btn-primary">
+</form>
+</div>
+
+
+
+	
+</body>
+</html>
